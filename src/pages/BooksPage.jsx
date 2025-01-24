@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 
-export default function Book() {
+export default function BookPage() {
     const [data, setData] = useState([]);
     const apiUrlBook = "http://localhost:3000/books";
 

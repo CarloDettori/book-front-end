@@ -1,6 +1,7 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import Home from './pages/home';
-import Book from './pages/Book';
+import HomePage from './pages/HomePage';
+import BooksPage from './pages/BooksPage';
+import BookDetailsPage from './pages/BookDetailsPage';
 import Contact from './pages/Contact';
 import About from './pages/About';
 import DefaultLayout from './pages/DefaultLayout';
@@ -10,8 +11,11 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route element={<DefaultLayout />}>
-            <Route index element={<Home />} />
-            <Route path="/Book" element={<Book />} />
+            <Route index element={<HomePage />} />
+            <Route path="/Books" >
+              <Route index element={<BooksPage />} />
+              <Route path=":id" element={<BookDetailsPage />} />
+            </Route>
             <Route path="/Contact" element={<Contact />} />
             <Route path="/About" element={<About />} />
           </Route>
