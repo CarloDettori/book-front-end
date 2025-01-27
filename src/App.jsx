@@ -1,23 +1,21 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import HomePage from './pages/HomePage';
 import BooksPage from './pages/BooksPage';
 import BookDetailsPage from './pages/BookDetailsPage';
 import Contact from './pages/Contact';
 import About from './pages/About';
-import DefaultLayout from './pages/DefaultLayout';
+import DefaultLayout from './components/layout/DefaultLayout';
 function App() {
   return (
     <>
       <BrowserRouter>
         <Routes>
           <Route element={<DefaultLayout />}>
-            <Route index element={<HomePage />} />
-            <Route path="/Books" >
+            <Route path="/" >
               <Route index element={<BooksPage />} />
               <Route path=":id" element={<BookDetailsPage />} />
             </Route>
-            <Route path="/Contact" element={<Contact />} />
-            <Route path="/About" element={<About />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/about" element={<About />} />
           </Route>
         </Routes>
       </BrowserRouter>
