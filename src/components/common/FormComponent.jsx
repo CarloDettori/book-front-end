@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 const initialReview = {
-    userName: "",
+    name: "",
     review: "",
     vote: "",
 };
@@ -17,6 +17,7 @@ export default function FormComponent() {
 
     function handleChange(e) {
         const { name, value } = e.target;
+        //console.log(`Updating ${name} to ${value}`);
         setUserReview({
             ...userReview,
             [name]: value,
@@ -30,10 +31,10 @@ export default function FormComponent() {
                 <input
                     type="text"
                     className="form-control"
-                    id="name"
+                    id="username"
                     name="name"
                     placeholder="Enter your name"
-                    value={userReview.userName}
+                    value={userReview.name}
                     onChange={handleChange}
                 />
             </div>
@@ -54,7 +55,7 @@ export default function FormComponent() {
             <div className="mb-3">
                 <label htmlFor="name" className="form-label">Vote</label>
                 <input
-                    type="text"
+                    type="number"
                     className="form-control"
                     id="vote"
                     name="vote"
