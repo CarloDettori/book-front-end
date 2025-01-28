@@ -35,6 +35,7 @@ export default function FormComponent() {
 
     function handleChange(e) {
         const { name, value } = e.target;
+        //console.log(`Updating ${name} to ${value}`);
         setUserReview({
             ...userReview,
             [name]: value,
