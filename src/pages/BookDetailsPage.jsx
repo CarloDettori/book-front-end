@@ -29,8 +29,26 @@ const BookDetailsPage = () => {
         }
     }
 
-    let starsUser = []
+    // STELLE USER TENTATIVO
+    // const reviews = singleBook?.reviews
+    // const starsUser = []
 
+    // reviews?.forEach(review => {
+
+    //     const stars = []
+    //     for (let i = 0; i < 5; i++) {
+
+    //         if (stars.length < review.vote) {
+    //             stars.push(<IoStarSharp style={{ color: "#f7af11", fontSize: "2rem" }} />)
+    //         } else {
+    //             stars.push(<RiStarSLine style={{ color: "#f7af11", fontSize: "2rem" }} />)
+    //         }
+    //     }
+    //     starsUser.push(stars)
+    // });
+
+
+    /* TENTATIVO-1 */let starsUser = []
     function starReviews(review) {
         const voteUser = review?.vote
         starsUser = []
@@ -67,13 +85,13 @@ const BookDetailsPage = () => {
 
             {/* Lista delle recensioni */}
             <div>
-                {singleBook?.reviews?.map((review) => {
-                    { starReviews(review) }
+                {singleBook?.reviews?.map((review, {/* TENTATIVO-2 index */ }) => {
+                    {/* TENTATIVO-1 */ starReviews(review) }
                     return (
                         <div key={review.id} className="d-block toast w-100 my-2" role="alert" aria-live="assertive" aria-atomic="true">
                             <div className="toast-header">
                                 <strong className="me-auto">
-                                    <FaUserAlt style={{ fontSize: "25px", marginBottom: "5px", paddingRight: "10px" }} /> Recensione di: {review.name}{starsUser}
+                                    <FaUserAlt style={{ fontSize: "25px", marginBottom: "5px", paddingRight: "10px" }} /> Recensione di: {review.name}{/* TENTATIVO-1 */ starsUser}{/* TENTATIVO-2 {starsUser[index]} */}
                                 </strong>
                                 <small className="text-body-secondary">11 mins ago</small>
                                 <button type="button" className="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
