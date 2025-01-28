@@ -59,7 +59,7 @@ export default function FormComponent() {
                     className="form-control"
                     id="vote"
                     name="vote"
-                    placeholder="Enter your vote"
+                    placeholder="Enter your vote from 1 to 5"
                     value={userReview.vote}
                     onChange={handleChange}
                 />
