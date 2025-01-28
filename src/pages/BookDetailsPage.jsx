@@ -16,34 +16,37 @@ const BookDetailsPage = () => {
     }, [id]);
 
     const vote = singleBook?.item?.vote_avarage
-    const voteUser = singleBook?.reviews?.vote
+
     let starsBooks = []
-    let starsUser = []
 
     for (let index = 0; index < 5; index++) {
         if (starsBooks.length < vote) {
-            starsBooks.push(<IoStarSharp style={{ color: "#f7af11", fontSize: "2rem" }} />)
+            starsBooks.push(<IoStarSharp key={index} style={{ color: "#f7af11", fontSize: "2rem" }} />)
 
         } else {
-            starsBooks.push(<RiStarSLine style={{ color: "#f7af11", fontSize: "2rem" }} />)
+            starsBooks.push(<RiStarSLine key={index} style={{ color: "#f7af11", fontSize: "2rem" }} />)
 
         }
     }
 
-    for (let index = 0; index < 5; index++) {
-        if (starsBooks.length < voteUser) {
-            starsUser.push(<IoStarSharp style={{ color: "#f7af11", fontSize: "2rem" }} />)
-        } else {
-            starsUser.push(<RiStarSLine style={{ color: "#f7af11", fontSize: "2rem" }} />)
+    let starsUser = []
+
+    function starReviews(review) {
+        const voteUser = review?.vote
+        starsUser = []
+        for (let index = 0; index < 5; index++) {
+            if (starsUser.length < voteUser) {
+                starsUser.push(<IoStarSharp key={index} style={{ color: "#f7af11", fontSize: "2rem" }} />)
+            } else {
+                starsUser.push(<RiStarSLine key={index} style={{ color: "#f7af11", fontSize: "2rem" }} />)
+            }
         }
+        return starsUser;
     }
-
-
-
 
     return (
 
-        <div className="container w-100 h-100 pt-4">
+        <div key={singleBook?.item?.id} className="container w-100 h-100 pt-4">
 
             {/* Card principale con i dettagli del libro */}
             <div className="card">
@@ -64,18 +67,21 @@ const BookDetailsPage = () => {
 
             {/* Lista delle recensioni */}
             <div>
-                {singleBook?.reviews?.map((review) => (
-                    <div key={review.id} className="d-block toast w-100 my-2" role="alert" aria-live="assertive" aria-atomic="true">
-                        <div className="toast-header">
-                            <strong className="me-auto">
-                                <FaUserAlt style={{ fontSize: "25px", marginBottom: "5px", paddingRight: "10px" }} /> Recensione di: {review.name}{starsUser}
-                            </strong>
-                            <small className="text-body-secondary">11 mins ago</small>
-                            <button type="button" className="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                {singleBook?.reviews?.map((review) => {
+                    { starReviews(review) }
+                    return (
+                        <div key={review.id} className="d-block toast w-100 my-2" role="alert" aria-live="assertive" aria-atomic="true">
+                            <div className="toast-header">
+                                <strong className="me-auto">
+                                    <FaUserAlt style={{ fontSize: "25px", marginBottom: "5px", paddingRight: "10px" }} /> Recensione di: {review.name}{starsUser}
+                                </strong>
+                                <small className="text-body-secondary">11 mins ago</small>
+                                <button type="button" className="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                            </div>
+                            <div className="toast-body">{review.text}</div>
                         </div>
-                        <div className="toast-body">{review.text}</div>
-                    </div>
-                ))}
+                    )
+                })}
             </div>
         </div>
     );
