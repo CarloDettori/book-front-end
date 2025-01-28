@@ -107,7 +107,7 @@ const BookDetailsPage = () => {
                     )
                 })}
             </div>
-
+            <FormComponent />
         </div>
     );
 };
