@@ -4,6 +4,7 @@ import axios from "axios"                       // Importiamo la libreria axios 
 import { FaUserAlt } from "react-icons/fa";
 import { IoStarSharp } from "react-icons/io5";
 import { RiStarSLine } from "react-icons/ri";
+import FormComponent from "../components/common/FormComponent";
 
 
 
@@ -84,14 +85,19 @@ const BookDetailsPage = () => {
             </div>
 
             {/* Lista delle recensioni */}
-            <div>
+            <div className="d-flex">
                 {singleBook?.reviews?.map((review, {/* TENTATIVO-2 index */ }) => {
                     {/* TENTATIVO-1 */ starReviews(review) }
                     return (
-                        <div key={review.id} className="d-block toast w-100 my-2" role="alert" aria-live="assertive" aria-atomic="true">
-                            <div className="toast-header">
-                                <strong className="me-auto">
-                                    <FaUserAlt style={{ fontSize: "25px", marginBottom: "5px", paddingRight: "10px" }} /> Recensione di: {review.name}{/* TENTATIVO-1 */ starsUser}{/* TENTATIVO-2 {starsUser[index]} */}
+                        <div key={review.id} className="flex-column d-flex toast w-100 my-2" role="alert" aria-live="assertive" aria-atomic="true">
+                            <div className="toast-header ">
+                                <strong className="me-auto flex-column d-flex">
+                                    <div>
+                                        <FaUserAlt style={{ fontSize: "25px", marginBottom: "5px", paddingRight: "10px" }} /> Recensione di: {review.name}
+                                    </div>
+                                    <div>
+                                        {/* TENTATIVO-1 */ starsUser}{/* TENTATIVO-2 {starsUser[index]} */}
+                                    </div>
                                 </strong>
                                 <small className="text-body-secondary">11 mins ago</small>
                                 <button type="button" className="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
@@ -101,6 +107,7 @@ const BookDetailsPage = () => {
                     )
                 })}
             </div>
+
         </div>
     );
 };
