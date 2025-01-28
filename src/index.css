@@ -12,7 +12,6 @@ header {
   background-color: red;
 }
 main {
-  overflow-y: scroll;
   width: 100%;
   height: calc(100vh - 200px);
   background-color: white;
@@ -52,4 +51,21 @@ header .navbar {
 }
 ::-webkit-scrollbar {
   display: none;
+}
+
+.card {
+  height: auto;
+}
+.card p {
+  height: 200px;
+  width: 100%;
+}
+.card img {
+  height: 250px;
+  width: auto;
+}
+
+.card-body {
+  width: 100%;
+  height: 250px !important;
 }

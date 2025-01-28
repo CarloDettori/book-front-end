@@ -20,15 +20,15 @@ export const CardComponent = () => {
 
         data.map((item) => (
             <div className="col-2" key={item.id}>
-                <div className="card" >
+                <div className="card mt-3 ">
                     <img className="card-img-top" src={item.image} alt="Card image cap" />
-                    <div className="card-body h-100 ">
-                        <h5 className="card-title">{item.title}</h5>
-                        <p className="card-text">{item.abstract}</p>
-                        <a href="#" className="btn btn-primary">Go somewhere</a>
+                    <div className="card-body d-flex flex-column align-items-start">
+                        <h5 className=" card-title">{item.title}</h5>
+                        <p className=" card-text">{item.abstract}</p>
+                        <a href="#" className=" btn btn-primary">Go somewhere</a>
                     </div>
                 </div>
-            </div>
+            </div >
         ))
 
     )
