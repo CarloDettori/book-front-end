@@ -27,6 +27,7 @@ export const SidebarComponent = () => {
 
                 <li>       {/* Secondo pulsante */}
                     <Link
+                        to={"/about"}
                         id="bottone3"
                         onClick={takeId}
                         className={` ${active === "bottone3" ? "active" : ""} nav-link text-white`}>
@@ -36,6 +37,7 @@ export const SidebarComponent = () => {
 
                 <li>       {/* Terzo pulsante */}
                     <Link
+                        to={"/contact"}
                         id="bottone5"
                         onClick={takeId}
                         className={` ${active === "bottone5" ? "active" : ""} nav-link text-white`}>
