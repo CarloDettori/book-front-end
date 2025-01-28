@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useState } from "react";          // Importiamo use state da react ( Hook Function )
+import { Link } from "react-router-dom";  // Importiamo Link da react-router-dom per permettere la navigazione tra le rotte 
 
 export const SidebarComponent = () => {
 
@@ -14,7 +14,8 @@ export const SidebarComponent = () => {
         <div id="sideBar" className="d-flex flex-column flex-shrink-0 p-3">
             <ul className="nav nav-pills flex-column mb-auto">
 
-                <li>       {/* Primo pulsante */}
+                {/* Primo Button */}
+                <li>
                     <Link
                         to={"/"}
                         id="bottone1"
@@ -25,7 +26,8 @@ export const SidebarComponent = () => {
                     </Link>
                 </li>
 
-                <li>       {/* Secondo pulsante */}
+                {/* Second Button */}
+                <li>
                     <Link
                         to={"/about"}
                         id="bottone3"
@@ -35,7 +37,8 @@ export const SidebarComponent = () => {
                     </Link>
                 </li>
 
-                <li>       {/* Terzo pulsante */}
+                {/* Terzo Button */}
+                <li>
                     <Link
                         to={"/contact"}
                         id="bottone5"
@@ -45,7 +48,8 @@ export const SidebarComponent = () => {
                     </Link>
                 </li>
 
-                <li>       {/* Quarto pulsante */}
+                {/* Quarto Button */}
+                <li>
                     <Link
                         id="bottone2"
                         onClick={takeId}
@@ -54,7 +58,8 @@ export const SidebarComponent = () => {
                     </Link>
                 </li>
 
-                <li>       {/* Quinto pulsante */}
+                {/* Quinto Button  */}
+                <li>
                     <Link
                         id="bottone4"
                         onClick={takeId}

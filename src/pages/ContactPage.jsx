@@ -1,4 +1,4 @@
-export const ContactPage = () => {
+const ContactPage = () => {
 
     const contacts = [
         { name: "Michele Saraceni", email: "michele@hotmail.it" },
@@ -26,4 +26,6 @@ export const ContactPage = () => {
         </main>
 
     )
-}
+};
+
+export default ContactPage;

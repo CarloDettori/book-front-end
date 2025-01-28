@@ -20,14 +20,16 @@ npm run dev
  # cancello i file che non mi servono
 
  #se voglio importo bootstrap in main.jsx prima del mio css custom
-   ```
+```
 
-```javascript 
- import "bootstrap/dist/css/bootstrap.min.css";
-  ```
- Comincio ad editare App.jsx
+```javascript
+import 'bootstrap/dist/css/bootstrap.min.css'
+```
+
+Comincio ad editare App.jsx
 
 ### Add to rules in eslint
+
 ```javascript
 rules: {
       ...js.configs.recommended.rules,
@@ -44,16 +46,16 @@ rules: {
 
 
 ```
+
 ### Routing
 
 ```javascript
-
 // in default layout es.
-import { Outlet } from "react-router-dom";
+import { Outlet } from 'react-router-dom'
 
-import HeaderComponent from "../components/HeaderComponent";
-import Alert from "../components/Alert";
-import FooterComponent from "../components/FooterComponent";
+import HeaderComponent from '../components/HeaderComponent'
+import Alert from '../components/Alert'
+import FooterComponent from '../components/FooterComponent'
 export default function DefaultLayout() {
   return (
     <div>
@@ -65,80 +67,82 @@ export default function DefaultLayout() {
 
       <FooterComponent />
     </div>
-  );
+  )
 }
 
 // in app.jsx es.
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
-   <BrowserRouter>
-      <Routes>
-        <Route Component={DefaultLayout}>
-          <Route path="/" Component={HomePage} />
-          <Route path="/books" > 👈
-            <Route index Component={MainPage} /> 👈
-            <Route path=":id" Component={BookPage} /> 👈
-            <Route path="create" Component={AddPizzaPage} /> 👈
-          </Route>
-        </Route>
-      </Routes>
-    </BrowserRouter>
-    
+;<BrowserRouter>
+  <Routes>
+    <Route Component={DefaultLayout}>
+      <Route path="/" Component={HomePage} />
+      <Route path="/books">
+        {' '}
+        👈
+        <Route index Component={MainPage} /> 👈
+        <Route path=":id" Component={BookPage} /> 👈
+        <Route path="create" Component={AddPizzaPage} /> 👈
+      </Route>
+    </Route>
+  </Routes>
+</BrowserRouter>
 ```
+
 ### Context
+
 ```javascript
-import { createContext, useContext, useState, useEffect } from "react";
-import axios from "axios";
+import { createContext, useContext, useState, useEffect } from 'react'
+import axios from 'axios'
 
-const apiUrl = import.meta.env.VITE_API_URL;
+const apiUrl = import.meta.env.VITE_API_URL
 
-const GlobalContext = createContext();
+const GlobalContext = createContext()
 
 const GlobalProvider = ({ children }) => {
-  const [movies, setMovies] = useState([]);
-  
-  useEffect(getData, []);
-  
+  const [movies, setMovies] = useState([])
+
+  useEffect(getData, [])
+
   function getData() {
-    setLoading(true);
+    setLoading(true)
     axios
       .get(apiUrl + endpoint)
       .then((res) => {
-        setMovies(res.data.results);       
+        setMovies(res.data.results)
       })
       .catch((error) => {
-        console.log(error);
+        console.log(error)
       })
       .finally(() => {
-        setLoading(false);
-      });
+        setLoading(false)
+      })
   }
-  
+
   const data = {
-    movies
-  };
+    movies,
+  }
   return (
     <GlobalContext.Provider value={data}>{children}</GlobalContext.Provider>
-  );
-};
-
-function useGlobalContext() {
-  const context = useContext(GlobalContext);
-  return context;
+  )
 }
 
-export { GlobalProvider, useGlobalContext };
+function useGlobalContext() {
+  const context = useContext(GlobalContext)
+  return context
+}
 
+export { GlobalProvider, useGlobalContext }
 ```
 
 In App.jsx use global context
+
 ```javascript
-<GlobalProvider>
-  /* Routing o altri componenti children */
- </GlobalProvider>
+<GlobalProvider>/* Routing o altri componenti children */</GlobalProvider>
 ```
 
-# TO DO 
+# TO DO
+
 1 pagine:
 -home
 -about
@@ -147,15 +151,15 @@ In App.jsx use global context
 
 2 layout:
 -default layout
-  -componets
-    -header
-    -footer
+-componets
+-header
+-footer
 
 3 components
-  -header
-  -card
-  -bookDetail
-  -reviewCard
-  -reviewList
-  -formReview
-  -footer
+-header
+-card
+-bookDetail
+-reviewCard
+-reviewList
+-formReview
+-footer

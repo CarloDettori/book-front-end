@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 
-export const CardComponent = () => {
+const CardComponent = () => {
 
     const [data, setData] = useState([]);
     const apiUrlBook = "http://localhost:3000/books";
@@ -34,3 +34,5 @@ export const CardComponent = () => {
     )
 
 }
+
+export default CardComponent;
