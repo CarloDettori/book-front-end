@@ -21,11 +21,11 @@ const CardComponent = () => {
 
         data.map((item) => (
             <div className="col-2" key={item.id}>
-                <div className="card mt-3 ">
-                    <img className="card-img-top" src={item.image} alt="Card image cap" />
-                    <div className="card-body d-flex flex-column align-items-start">
-                        <h5 className=" card-title">{item.title}</h5>
-                        <p className=" card-text">{item.abstract}</p>
+                <div className="card mt-3 position-relative t-0 l-0 border-0">
+                    <img className="card-img-top rounded-0" src={item.image} alt="Card image cap" />
+                    <div id='overlay' className=" h-100 card-body d-flex flex-column align-items-start position-absolute t-0 l-0 ">
+                        <h5 className=" card-title text-white">{item.title}</h5>
+                        <p className=" card-text text-white">{item.abstract}</p>
                         <Link to={`http://localhost:5173/${item.id}`} className=" btn btn-primary">Go somewhere</Link>
                     </div>
                 </div>

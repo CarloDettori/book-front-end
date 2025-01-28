@@ -8,7 +8,10 @@ const BookPage = () => {
             <div className="container" >
                 <div className="row">
                     <CardComponent />                 {/* Componente card con i libri */}
-                    <CardComponent />                 {/* Replica Componente card con i libri */}
+                    <CardComponent />                 {/* Componente card con i libri */}
+                    <CardComponent />                 {/* Componente card con i libri */}
+                    <CardComponent />                 {/* Componente card con i libri */}
+                    <CardComponent />                 {/* Componente card con i libri */}
                 </div>
             </div>
         </>

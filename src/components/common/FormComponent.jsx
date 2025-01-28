@@ -1,18 +1,36 @@
 import { useState } from "react";
+import axios from "axios";
+import { useParams } from "react-router-dom";
 
 const initialReview = {
-    userName: "",
-    review: "",
+    name: "",
+    text: "",
     vote: "",
 };
+
 export default function FormComponent() {
+    const { id } = useParams();
+
     const [userReview, setUserReview] = useState(initialReview);
     const [reviewList, setReviewList] = useState([]);
 
+
+    function sendData() {
+        axios.post(`http://localhost:3000/books/reviews/${id}`, userReview)
+            .then((res) => {
+                console.log(res.data);
+                setReviewList([...reviewList, userReview]);
+            })
+            .catch((err) => console.log(err))
+            .finally(() => {
+            });
+    }
+
     function handleSubmit(e) {
         e.preventDefault();
-        setReviewList([...reviewList, userReview]);
+        sendData();
         setUserReview(initialReview);
+        window.location.reload();
     }
 
     function handleChange(e) {
@@ -30,35 +48,35 @@ export default function FormComponent() {
                 <input
                     type="text"
                     className="form-control"
-                    id="name"
+                    id="username"
                     name="name"
                     placeholder="Enter your name"
-                    value={userReview.userName}
+                    value={userReview.name}
                     onChange={handleChange}
                 />
             </div>
 
             <div className="mb-3">
-                <label htmlFor="review" className="form-label">Review</label>
+                <label htmlFor="text" className="form-label">Review</label>
                 <textarea
                     className="form-control"
-                    id="review"
-                    name="review"
+                    id="text"
+                    name="text"
                     rows="3"
                     placeholder="Enter your review"
-                    value={userReview.review}
+                    value={userReview.text}
                     onChange={handleChange}
                 ></textarea>
             </div>
 
             <div className="mb-3">
-                <label htmlFor="name" className="form-label">Vote</label>
+                <label htmlFor="vote" className="form-label">Vote</label>
                 <input
-                    type="text"
+                    type="number"
                     className="form-control"
                     id="vote"
                     name="vote"
-                    placeholder="Enter your vote"
+                    placeholder="Enter your vote from 1 to 5"
                     value={userReview.vote}
                     onChange={handleChange}
                 />
@@ -66,5 +84,5 @@ export default function FormComponent() {
 
             <button type="submit" className="btn btn-primary">Submit</button>
         </form>
-    )
+    );
 }
