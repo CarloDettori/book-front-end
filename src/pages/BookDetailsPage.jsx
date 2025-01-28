@@ -2,6 +2,9 @@ import { useParams } from "react-router-dom"      // Dopo aver installato react-
 import { useState, useEffect } from "react"      // Importiamo da react useState, useEffect ( hooks = funzioni gancio ).
 import axios from "axios"                       // Importiamo la libreria axios per effettuare le richieste http verso il server.
 import { FaUserAlt } from "react-icons/fa";
+import { IoStarSharp } from "react-icons/io5";
+import { RiStarSLine } from "react-icons/ri";
+
 
 
 const BookDetailsPage = () => {
@@ -11,6 +14,31 @@ const BookDetailsPage = () => {
     useEffect(() => { // Funzione per ottenere i dettagli di un singolo libro
         axios.get(`http://localhost:3000/books/${id}`).then((res) => setSingleBook({ item: res.data.item, reviews: res.data.reviews }));
     }, [id]);
+
+    const vote = singleBook?.item?.vote_avarage
+    const voteUser = singleBook?.reviews?.vote
+    let starsBooks = []
+    let starsUser = []
+
+    for (let index = 0; index < 5; index++) {
+        if (starsBooks.length < vote) {
+            starsBooks.push(<IoStarSharp style={{ color: "#f7af11", fontSize: "2rem" }} />)
+
+        } else {
+            starsBooks.push(<RiStarSLine style={{ color: "#f7af11", fontSize: "2rem" }} />)
+
+        }
+    }
+
+    for (let index = 0; index < 5; index++) {
+        if (starsBooks.length < voteUser) {
+            starsUser.push(<IoStarSharp style={{ color: "#f7af11", fontSize: "2rem" }} />)
+        } else {
+            starsUser.push(<RiStarSLine style={{ color: "#f7af11", fontSize: "2rem" }} />)
+        }
+    }
+
+
 
 
     return (
@@ -28,6 +56,7 @@ const BookDetailsPage = () => {
                             <h4 className="card-title">{singleBook?.item?.title}</h4>
                             <h5>Author: {singleBook?.item?.author}</h5>
                             <p className="card-text">{singleBook?.item?.abstract}</p>
+                            <p className=" card-text">{starsBooks}</p>
                         </div>
                     </div>
                 </div>
@@ -39,7 +68,7 @@ const BookDetailsPage = () => {
                     <div key={review.id} className="d-block toast w-100 my-2" role="alert" aria-live="assertive" aria-atomic="true">
                         <div className="toast-header">
                             <strong className="me-auto">
-                                <FaUserAlt style={{ fontSize: "25px", marginBottom: "5px", paddingRight: "10px" }} /> Recensione di: {review.name}
+                                <FaUserAlt style={{ fontSize: "25px", marginBottom: "5px", paddingRight: "10px" }} /> Recensione di: {review.name}{starsUser}
                             </strong>
                             <small className="text-body-secondary">11 mins ago</small>
                             <button type="button" className="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>

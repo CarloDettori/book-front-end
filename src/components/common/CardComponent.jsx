@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 
 const CardComponent = () => {
@@ -25,7 +26,7 @@ const CardComponent = () => {
                     <div className="card-body d-flex flex-column align-items-start">
                         <h5 className=" card-title">{item.title}</h5>
                         <p className=" card-text">{item.abstract}</p>
-                        <a href="#" className=" btn btn-primary">Go somewhere</a>
+                        <Link to={`http://localhost:5173/${item.id}`} className=" btn btn-primary">Go somewhere</Link>
                     </div>
                 </div>
             </div >
