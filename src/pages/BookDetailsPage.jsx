@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom"      // Dopo aver installato react-router-dom ci importiamo "BrowserRouter", "Routes",
+import { useParams } from "react-router-dom"      // Dopo aver installato react-router-dom ci importiamo useParam per accedere ai parametri della url
 import { useState, useEffect } from "react"      // Importiamo da react useState, useEffect ( hooks = funzioni gancio ).
 import axios from "axios"                       // Importiamo la libreria axios per effettuare le richieste http verso il server.
 import { FaUserAlt } from "react-icons/fa";
