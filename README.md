@@ -141,25 +141,7 @@ In App.jsx use global context
 <GlobalProvider>/* Routing o altri componenti children */</GlobalProvider>
 ```
 
-# TO DO
+# COMANDO DI RIPRISTINO DEL PUSH
 
-1 pagine:
--home
--about
--contact us
--pagina dettaglio
+git checkout -f CODICE
 
-2 layout:
--default layout
--componets
--header
--footer
-
-3 components
--header
--card
--bookDetail
--reviewCard
--reviewList
--formReview
--footer
