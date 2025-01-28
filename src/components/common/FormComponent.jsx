@@ -1,45 +1,70 @@
+import { useState } from "react";
 
-const FormComponent = () => {
+const initialReview = {
+    userName: "",
+    review: "",
+    vote: "",
+};
+export default function FormComponent() {
+    const [userReview, setUserReview] = useState(initialReview);
+    const [reviewList, setReviewList] = useState([]);
+
+    function handleSubmit(e) {
+        e.preventDefault();
+        setReviewList([...reviewList, userReview]);
+        setUserReview(initialReview);
+    }
+
+    function handleChange(e) {
+        const { name, value } = e.target;
+        setUserReview({
+            ...userReview,
+            [name]: value,
+        });
+    }
 
     return (
-
-        <form style={{ width: "26rem" }}>
-
-            <div data-mdb-input-init className="form-outline mb-1">
-                <input type="text" id="form4Example1" className="form-control" placeholder="Insert ur name here" />
-                <label className="form-label text-white" htmlFor="form4Example1">Name</label>
-            </div>
-
-
-            <div data-mdb-input-init className="form-outline mb-1">
-                <input type="email" id="form4Example2" className="form-control" placeholder="Insert ur username here" />
-                <label className="form-label text-white" htmlFor="form4Example2">Vote</label>
-            </div>
-
-
-            <div data-mdb-input-init className="form-outline mb-1">
-                <textarea className="form-control" id="form4Example3" rows="4"></textarea>
-                <label className="form-label text-white text-black" htmlFor="form4Example3">Message</label>
-            </div>
-
-            <div className="form-check d-flex justify-content-center mb-4">
+        <form onSubmit={handleSubmit}>
+            <div className="mb-3">
+                <label htmlFor="name" className="form-label">Name</label>
                 <input
-                    className="form-check-input me-2 "
-                    type="checkbox"
-                    value=""
-                    id="form4Example4"
-                    checked
+                    type="text"
+                    className="form-control"
+                    id="name"
+                    name="name"
+                    placeholder="Enter your name"
+                    value={userReview.userName}
+                    onChange={handleChange}
                 />
-                <label className="form-check-label text-white" htmlFor="form4Example4">
-                    Send me a copy of this message
-                </label>
             </div>
 
+            <div className="mb-3">
+                <label htmlFor="review" className="form-label">Review</label>
+                <textarea
+                    className="form-control"
+                    id="review"
+                    name="review"
+                    rows="3"
+                    placeholder="Enter your review"
+                    value={userReview.review}
+                    onChange={handleChange}
+                ></textarea>
+            </div>
 
-            <button data-mdb-ripple-init type="button" className="btn btn-primary btn-block mb-4">Send</button>
+            <div className="mb-3">
+                <label htmlFor="name" className="form-label">Vote</label>
+                <input
+                    type="text"
+                    className="form-control"
+                    id="vote"
+                    name="vote"
+                    placeholder="Enter your vote"
+                    value={userReview.vote}
+                    onChange={handleChange}
+                />
+            </div>
+
+            <button type="submit" className="btn btn-primary">Submit</button>
         </form>
-
     )
 }
-
-export default FormComponent
