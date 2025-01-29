@@ -13,7 +13,7 @@ export const SidebarComponent = () => {
     ];
 
     return (
-        <div id="sideBar" className="d-flex flex-column flex-shrink-0 p-3">
+        <div id="sideBar" className=" d-flex flex-column align-items-center flex-shrink-0 p-3">
             <ul className="nav nav-pills flex-column mb-auto">
                 {menuItems.map((item) => (
                     <li key={item.id}>
@@ -21,9 +21,12 @@ export const SidebarComponent = () => {
                             to={item.to}
                             id={item.id}
                             onClick={() => setActive(item.id)}
-                            className={`nav-link text-white ${active === item.id ? "active" : ""}`}
+                            className={`nav-link text-white text-center ${active === item.id ? "active" : ""}`}
                         >
-                            <i className={`bi ${item.icon} me-2`}></i>{item.label}
+                            <i className={`bi ${item.icon}`}></i>
+                            <div className="custom">
+                                {item.label}
+                            </div>
                         </Link>
                     </li>
                 ))}

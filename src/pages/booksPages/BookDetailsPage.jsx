@@ -68,26 +68,33 @@ const BookDetailsPage = () => {
 
     return (
         <>
-            <FormComponent overlay={showForm} />
-            <div key={singleBook?.item?.id} className={`container ${hideDetails} `}>
 
-                {/* Card principale con i dettagli del libro */}
-                <div className="card mt-5">
-                    <div className="row g-0">
-                        <div className="col-2">
-                            <img src={singleBook?.item?.image} className="img-fluid rounded-start" alt="..." />
+            <FormComponent overlay={showForm} />
+
+            <div key={singleBook?.item?.id} className={`container ${hideDetails} `}> {/* Card principale con i dettagli del libro */}
+                <div className="card mt-5 p-3">
+                    <div className="row g-0 align-items-center">
+                        {/* Immagine */}
+                        <div className="col-sm-12 col-md-4 text-center">
+                            <img src={singleBook?.item?.image} className="img-fluid rounded-start" alt="Book Cover" />
                         </div>
-                        <div className="col-md-8">
-                            <div className="card-body">
+                        {/* Testo */}
+                        <div className="col-sm-12 col-md-8 ">
+                            <div className="card-body h-100">
                                 <h4 className="card-title">{singleBook?.item?.title}</h4>
                                 <h5>Author: {singleBook?.item?.author}</h5>
-                                <p className="card-text">{singleBook?.item?.abstract}</p>
-                                <p className=" card-text">{starsBooks}</p>
-                                <button onClick={() => { setShowForm("overlayFormActive"); setHideDetails("hideContent") }} className="btn btn-dark">Leave a review</button>
+                                <p className="card-text d-block">{singleBook?.item?.abstract}</p>
+                                <p className="card-text d-block">{starsBooks}</p>
+                                <button
+                                    onClick={() => { setShowForm("overlayFormActive"); setHideDetails("hideContent") }}
+                                    className="btn btn-dark">
+                                    Leave a review
+                                </button>
                             </div>
                         </div>
                     </div>
                 </div>
+
 
                 {/* Lista delle recensioni */}
 

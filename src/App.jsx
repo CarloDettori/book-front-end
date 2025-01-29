@@ -1,8 +1,8 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom' // Dopo aver installato react-router-dom ci importiamo "BrowserRouter", "Routes", "Route"
 import BooksPage from './pages/booksPages/BooksPage'                      // Importiamo i vari componenti e le pagine necessarie per il rendering delle pagine
 import BookDetailsPage from './pages/booksPages/BookDetailsPage';
-import ContactPage from './pages/infoPages/ContactPage';
-import AboutUsPage from "./pages/infoPages/AboutUsPage"
+import ContactPage from './pages/ContactPage';
+import AboutUsPage from './pages/AboutUsPage';
 import DefaultLayout from './components/layout/DefaultLayout'; // Importiamo il layout di default per le varie rotte web
 import { GlobalProvider } from './context/GlobalContext';  // Importiamo 
 
