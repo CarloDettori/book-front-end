@@ -6,8 +6,6 @@ import { IoStarSharp } from "react-icons/io5";
 import { RiStarSLine } from "react-icons/ri";
 import FormComponent from "../../components/common/FormComponent";
 import gsap from "gsap";
-import { TweenLite } from "gsap/gsap-core";
-
 
 
 const BookDetailsPage = () => {
@@ -69,29 +67,29 @@ const BookDetailsPage = () => {
     const [showForm, setShowForm] = useState("")
 
     // SCRIPT PER ANIMAZIONE RELATIVA ALLA POSIZIONE DEL CURSORE
-    let lastMouseX = 0,
-        lastMouseY = 0;
-    let rotX = 0,
-        rotY = 0;
+    // let lastMouseX = 0,
+    //     lastMouseY = 0;
+    // let rotX = 0,
+    //     rotY = 0;
 
-    const setRotX = gsap.quickSetter(".button-3D", "rotationX");
-    const setRotY = gsap.quickSetter(".button-3D", "rotationY");
+    // const setRotX = gsap.quickSetter(".button-3D", "rotationX");
+    // const setRotY = gsap.quickSetter(".button-3D", "rotationY");
 
-    document.addEventListener("mousemove", mouseMoved);
+    // document.addEventListener("mousemove", mouseMoved);
 
-    function mouseMoved(ev) {
-        var deltaX = ev.pageX - lastMouseX;
-        var deltaY = ev.pageY - lastMouseY;
+    // function mouseMoved(ev) {
+    //     var deltaX = ev.pageX - lastMouseX;
+    //     var deltaY = ev.pageY - lastMouseY;
 
-        lastMouseY = ev.pageX;
-        lastMouseX = ev.pageY;
+    //     lastMouseX = ev.pageX;
+    //     lastMouseY = ev.pageY;
 
-        rotY -= deltaX * 0.1;
-        rotX += deltaY * 0.1;
+    //     rotY -= deltaX * 0.1;
+    //     rotX += deltaY * 0.1;
 
-        setRotX(rotX - 'deg');
-        setRotY(rotY - 'deg');
-    }
+    //     setRotX(rotX + 'deg');
+    //     setRotY(rotY + 'deg');
+    // }
 
 
 
@@ -111,10 +109,10 @@ const BookDetailsPage = () => {
                             <div className="pane pane-front">
                                 <img src={singleBook?.item?.image} className="img-fluid rounded-start" alt="Book Cover" />
                             </div>
-                            <div className="pane pane-right"></div>
-                            <div className="pane pane-left"></div>
-                            <div className="pane pane-top"></div>
-                            <div className="pane pane-bottom"></div>
+                            <div className="pane pane-right">{/*superficie destra*/}</div>
+                            <div className="pane pane-left">{/*superficie sinistra*/}</div>
+                            <div className="pane pane-top">{/*superficie sopra*/}</div>
+                            <div className="pane pane-bottom">{/*superficie sotto*/}</div>
                         </div>
                         {/* Testo */}
                         <div className="col-sm-12 col-md-8 ">

@@ -16,43 +16,40 @@
         position: absolute;
         top: 0;
         left: 0;
-        background: #fff;
-        border: 3px solid #000;
-        border-radius: 2px;
         transition: all 0.4s ease;
 
         &.pane-front {
             width: 172.5px;
             height: 250px;
-            transform: rotateY(0deg) translateZ(-25px);
+            transform: rotateY(-0deg) translateZ(25px);
         }
 
         &.pane-right {
             width: 30px;
             height: 250px;
-            transform: rotateY(-90deg) translateZ(-125px);
-            background-color: lightgray;
+            transform: rotateY(90deg) translateZ(125px);
+            background-color: gray;
         }
 
         &.pane-left {
             width: 30px;
             height: 250px;
-            transform: rotateY(90deg) translateZ(-25px);
-            background-color: lightgray;
+            transform: rotateY(-90deg) translateZ(25px);
+            background-color: black;
         }
 
         &.pane-top {
             width: 172.5px;
             height: 30px;
-            transform: rotateX(-90deg) translateZ(-25px);
-            background-color: lightgray;
+            transform: rotateX(90deg) translateZ(25px);
+            background-color: gray;
         }
 
         &.pane-bottom {
             width: 172.5px;
             height: 30px;
-            transform: rotateX(90deg) translateZ(-25px);
-            background-color: lightgray;
+            transform: rotateX(-90deg) translateZ(25px);
+            background-color: gray;
         }
     }
 }
