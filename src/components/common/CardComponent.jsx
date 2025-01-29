@@ -20,7 +20,7 @@ const CardComponent = () => {
 
         data.map((item) => (
 
-            <div className="col-xxl-2 col-xl-3 col-md-4 col-sm-6 mb-5" key={item.id} >
+            <div className="ptb-card col-xxl-2 col-xl-3 col-md-4 col-sm-6 mb-5" key={item.id} >
                 <a
                     className="book-container"
                     target="_blank"
