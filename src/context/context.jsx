@@ -1,39 +1,39 @@
-import { createContext } from "react";
-import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
-import axios from "axios";
+// import { createContext } from "react";
+// import { useState, useEffect } from "react";
+// import { useParams } from "react-router-dom";
+// import axios from "axios";
 
-const GlobalContext = createContext();
+// const GlobalContext = createContext();
 
-const GlobalProvider = ({ children }) => {
-    const [bookList, setBookList] = useState([])
-    const [value, setValue] = useState([])
+// const GlobalProvider = ({ children }) => {
+//     const [bookList, setBookList] = useState([])
+//     const [value, setValue] = useState([])
 
 
 
-    function getMovieListData() {
-        axios
-            .get("http://localhost:3000/movies")
-            .then((res) => {
-                //console.log(res.data.items)
-                setMovieList(res.data.items)
-                setReviewList(res.data.items)
-            })
-    }
+//     function getMovieListData() {
+//         axios
+//             .get("http://localhost:3000/movies")
+//             .then((res) => {
+//                 //console.log(res.data.items)
+//                 setMovieList(res.data.items)
+//                 setReviewList(res.data.items)
+//             })
+//     }
 
-    useEffect(() => {
-        getMovieListData()
+//     useEffect(() => {
+//         getMovieListData()
 
-    }, [])
+//     }, [])
 
-    return (
+//     return (
 
-        <GlobalContext.Provider value={{ movieList, reviewList }} >
-            {children}
-        </GlobalContext.Provider>
+//         <GlobalContext.Provider value={{ movieList, reviewList }} >
+//             {children}
+//         </GlobalContext.Provider>
 
-    )
+//     )
 
-}
+// }
 
-export { GlobalContext, GlobalProvider }
+// export { GlobalContext, GlobalProvider }

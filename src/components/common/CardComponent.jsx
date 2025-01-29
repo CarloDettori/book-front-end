@@ -10,10 +10,9 @@ const CardComponent = () => {
     useEffect(() => {
         axios.get(apiUrlBook).then((res) => {
             setData(res.data.items);
+        }).catch((error) => {
+            console.log(error);
         })
-            .catch((error) => {
-                console.log(error, "errore nella ricerca dei libri");
-            })
     }, []);
 
 
