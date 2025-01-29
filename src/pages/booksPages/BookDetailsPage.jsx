@@ -6,6 +6,12 @@ import { IoStarSharp } from "react-icons/io5";
 import { RiStarSLine } from "react-icons/ri";
 import FormComponent from "../../components/common/FormComponent";
 import gsap from "gsap";
+import ScrollTrigger from "gsap/ScrollTrigger";
+import Flip from "gsap/Flip";
+import Draggable from "gsap/Draggable";
+import { MotionPathPlugin } from "gsap/all";
+gsap.registerPlugin(ScrollTrigger, Draggable, Flip, MotionPathPlugin);
+
 
 
 const BookDetailsPage = () => {
@@ -105,14 +111,23 @@ const BookDetailsPage = () => {
                         {/* <div className="col-sm-12 col-md-4 text-center">
                             <img src={singleBook?.item?.image} className="img-fluid rounded-start" alt="Book Cover" />
                         </div> */}
-                        <div className="button-3D col-sm-12 col-md-4 text-center">
+                        {/* Immagine animata*/}
+                        <div className=" button-3D col-sm-12 col-md-4 text-center">
                             <div className="pane pane-front">
                                 <img src={singleBook?.item?.image} className="img-fluid rounded-start" alt="Book Cover" />
                             </div>
-                            <div className="pane pane-right">{/*superficie destra*/}</div>
-                            <div className="pane pane-left">{/*superficie sinistra*/}</div>
-                            <div className="pane pane-top">{/*superficie sopra*/}</div>
-                            <div className="pane pane-bottom">{/*superficie sotto*/}</div>
+                            <div className="pane pane-right">
+                                {/* superficie destra */}
+                            </div>
+                            <div className="pane pane-left">
+                                {/* superficie sinistra */}
+                            </div>
+                            <div className="pane pane-top">
+                                {/* superficie sopra */}
+                            </div>
+                            <div className="pane pane-bottom">
+                                {/* superficie sotto */}
+                            </div>
                         </div>
                         {/* Testo */}
                         <div className="col-sm-12 col-md-8 ">
