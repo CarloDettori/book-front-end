@@ -98,6 +98,15 @@ footer {
   z-index: 1;
 }
 
+.overlayForm button {
+  background-color: #030303;
+  border: 0;
+}
+
+.overlayForm button:hover {
+  background-color: #420101;
+}
+
 .overlayFormActive {
   opacity: 1 !important;
   z-index: 100;
