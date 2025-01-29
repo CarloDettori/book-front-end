@@ -77,6 +77,7 @@ export default function FormComponent({ overlay }) {
                         type="number"
                         min="1"
                         max="5"
+                        step="1"
                         className="form-control"
                         id="vote"
                         name="vote"
