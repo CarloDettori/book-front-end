@@ -114,8 +114,8 @@ const BookDetailsPage = () => {
                                             {/* TENTATIVO-1 */ starsUser}{/* TENTATIVO-2 {starsUser[index]} */}
                                         </div>
                                     </strong>
-                                    <small className="text-body-secondary">11 mins ago</small>
-                                    <button type="button" className="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                                    <small className=" text-white px-3">11 mins ago</small>
+                                    <button type="button" className="bg-white btn-close mx-2" data-bs-dismiss="toast" aria-label="Close"></button>
                                 </div>
                                 <div className="toast-body p-2">{review.text}</div>
                             </div>
