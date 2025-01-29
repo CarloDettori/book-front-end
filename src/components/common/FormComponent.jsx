@@ -75,7 +75,7 @@ export default function FormComponent({ overlay }) {
                     <label htmlFor="vote" className="form-label">Vote</label>
                     <input
                         type="number"
-                        min="1"
+                        min="0"
                         max="5"
                         step="1"
                         className="form-control"
