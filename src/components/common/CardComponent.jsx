@@ -24,7 +24,6 @@ const CardComponent = () => {
                 <div className="col-2 mb-5" key={item.id} >
                     <a
                         className="book-container"
-                        href=""
                         target="_blank"
                         rel="noreferrer noopener"
                     >
