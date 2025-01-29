@@ -7,7 +7,7 @@ const GlobalContext = createContext();
 
 const GlobalProvider = ({ children }) => {
     const [bookList, setBookList] = useState([])
-    const [reviewList, setReviewList] = useState([])
+    const [value, setValue] = useState([])
 
 
 
