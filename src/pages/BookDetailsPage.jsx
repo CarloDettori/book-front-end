@@ -90,7 +90,7 @@ const BookDetailsPage = () => {
 
                 {/* Lista delle recensioni */}
 
-                <div className="row  mt-4">
+                <div className="row mt-4">
 
                     {singleBook?.reviews?.map((review) => {
                         {/* TENTATIVO-1 */ starReviews(review) }
