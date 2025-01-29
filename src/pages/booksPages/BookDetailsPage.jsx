@@ -97,6 +97,16 @@ const BookDetailsPage = () => {
     //     setRotY(rotY + 'deg');
     // }
 
+    //vi lascio le fonti sull'animazione per chi volesse consultarle
+
+    // codice: https://gsap.com/community/forums/topic/22796-3d-cube-animation-based-on-mouse-cursor-position/
+
+    // tutorial GSAP: https://www.npmjs.com/package/gsap
+
+
+
+
+
 
 
     return (
