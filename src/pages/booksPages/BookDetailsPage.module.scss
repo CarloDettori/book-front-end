@@ -22,34 +22,37 @@
         transition: all 0.4s ease;
 
         &.pane-front {
-            width: 150px;
-            height: 50px;
-            transform: rotateY(0deg) translateZ(25px);
-            background: #000;
+            width: 172.5px;
+            height: 250px;
+            transform: rotateY(0deg) translateZ(-25px);
         }
 
         &.pane-right {
-            width: 50px;
-            height: 50px;
-            transform: rotateY(90deg) translateZ(125px);
+            width: 30px;
+            height: 250px;
+            transform: rotateY(-90deg) translateZ(-125px);
+            background-color: lightgray;
         }
 
         &.pane-left {
-            width: 50px;
-            height: 50px;
-            transform: rotateY(-90deg) translateZ(25px);
+            width: 30px;
+            height: 250px;
+            transform: rotateY(90deg) translateZ(-25px);
+            background-color: lightgray;
         }
 
         &.pane-top {
-            width: 150px;
-            height: 50px;
-            transform: rotateX(90deg) translateZ(25px);
+            width: 172.5px;
+            height: 30px;
+            transform: rotateX(-90deg) translateZ(-25px);
+            background-color: lightgray;
         }
 
         &.pane-bottom {
-            width: 150px;
-            height: 50px;
-            transform: rotateX(-90deg) translateZ(25px);
+            width: 172.5px;
+            height: 30px;
+            transform: rotateX(90deg) translateZ(-25px);
+            background-color: lightgray;
         }
     }
 }
