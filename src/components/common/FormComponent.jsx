@@ -44,7 +44,7 @@ export default function FormComponent({ overlay }) {
 
     return (
         <div className={`${overlay} overlayForm  position-absolute t-0 l-0 w-100 h-100 d-flex justify-content-center flex-column align-items-center`}>
-            <form onSubmit={handleSubmit} className="w-50">
+            <form onSubmit={handleSubmit} className="w-50 bg-white p-5 rounded-3">
                 <div className="mb-3">
                     <label htmlFor="name" className="form-label">Name</label>
                     <input
