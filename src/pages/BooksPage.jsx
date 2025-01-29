@@ -5,12 +5,8 @@ const BookPage = () => {
     return (
 
         <>
-            <div className="container" >
+            <div className="container mt-5" >
                 <div className="row">
-                    <CardComponent />                 {/* Componente card con i libri */}
-                    <CardComponent />                 {/* Componente card con i libri */}
-                    <CardComponent />                 {/* Componente card con i libri */}
-                    <CardComponent />                 {/* Componente card con i libri */}
                     <CardComponent />                 {/* Componente card con i libri */}
                 </div>
             </div>

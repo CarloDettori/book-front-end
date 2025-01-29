@@ -20,16 +20,29 @@ const CardComponent = () => {
     return (
 
         data.map((item) => (
-            <div className="col-2" key={item.id}>
-                <div className="card mt-3 position-relative t-0 l-0 border-0">
-                    <img className="card-img-top rounded-0" src={item.image} alt="Card image cap" />
-                    <div id='overlay' className=" h-100 card-body d-flex flex-column align-items-start position-absolute t-0 l-0 ">
-                        <h5 className=" card-title text-white">{item.title}</h5>
-                        <p className=" card-text text-white">{item.abstract}</p>
-                        <Link to={`http://localhost:5173/${item.id}`} className=" btn btn-primary">Go somewhere</Link>
-                    </div>
-                </div>
-            </div >
+            <>
+                <div className="col-2 mb-5" key={item.id} >
+                    <a
+                        className="book-container"
+                        href=""
+                        target="_blank"
+                        rel="noreferrer noopener"
+                    >
+                        <div className="book">
+                            <img alt="" src={item.image} />
+                            <div id='overlay' className="card-body d-flex flex-column align-items-start justify-content-between pt-3">
+                                <div>
+                                    <h5 className=" card-title text-white">{item.title}</h5>
+                                    <p className='text-white'>Author: {item.author}</p>
+                                    <p className=" card-text text-white">{item.abstract}</p>
+                                </div>
+                                <Link id='bookButton' to={`http://localhost:5173/${item.id}`} className=" btn ">Details</Link>
+                            </div>
+                        </div>
+                    </a>
+                </div >
+
+            </>
         ))
 
     )

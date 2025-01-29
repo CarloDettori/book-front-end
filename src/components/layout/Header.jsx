@@ -6,7 +6,10 @@ const Header = () => (
                     <span className="navbar-toggler-icon"></span>
                 </button>
                 <div className="d-flex justify-content-between collapse navbar-collapse" id="navbarTogglerDemo03">
-                    <h2 className="text-white">FILMS</h2>
+                    <div className="logo d-flex align-items-center">
+                        <img src="src/public/sigil.png" alt="" />
+                        <h2 className="text-white px-2">Libraries</h2>
+                    </div>
                     <form className="d-flex" role="search">
                         <input className="form-control me-2 white" type="search" placeholder="Search" aria-label="Search" />
                         <button className="btn bg-white" type="submit">Search</button>

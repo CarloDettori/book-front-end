@@ -85,15 +85,18 @@ const BookDetailsPage = () => {
             </div>
 
             {/* Lista delle recensioni */}
-            <div className="d-flex">
-                {singleBook?.reviews?.map((review, {/* TENTATIVO-2 index */ }) => {
+
+            <div className="row  mt-4">
+
+                {singleBook?.reviews?.map((review) => {
                     {/* TENTATIVO-1 */ starReviews(review) }
                     return (
-                        <div key={review.id} className="flex-column d-flex toast w-100 my-2" role="alert" aria-live="assertive" aria-atomic="true">
-                            <div className="toast-header ">
+
+                        <div key={review.id} className=" rounded-3 bg-white d-flex flex-column my-2  p-0 col-12 " role="alert" aria-live="assertive" aria-atomic="true">
+                            <div className="toast-header rounded-2 p-2 ">
                                 <strong className="me-auto flex-column d-flex">
-                                    <div>
-                                        <FaUserAlt style={{ fontSize: "25px", marginBottom: "5px", paddingRight: "10px" }} /> Recensione di: {review.name}
+                                    <div className="text-white">
+                                        <FaUserAlt style={{ fontSize: "25px", marginBottom: "5px", paddingRight: "10px", color: "white" }} /> Recensione di: {review.name}
                                     </div>
                                     <div>
                                         {/* TENTATIVO-1 */ starsUser}{/* TENTATIVO-2 {starsUser[index]} */}
@@ -102,11 +105,14 @@ const BookDetailsPage = () => {
                                 <small className="text-body-secondary">11 mins ago</small>
                                 <button type="button" className="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
                             </div>
-                            <div className="toast-body">{review.text}</div>
+                            <div className="toast-body p-2">{review.text}</div>
                         </div>
                     )
                 })}
+
             </div>
+
+
             <FormComponent />
         </div>
     );
