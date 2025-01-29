@@ -16,7 +16,7 @@ const GlobalProvider = ({ children }) => {
         }
     };
     const filteredBooks = booksList.filter((book) =>
-        book.title.toLowerCase().includes(searchQuery.toLowerCase())
+        book.title.toLowerCase().includes(searchQuery.toLowerCase()) || book.author.toLowerCase().includes(searchQuery.toLowerCase())
     );
 
     useEffect(() => {

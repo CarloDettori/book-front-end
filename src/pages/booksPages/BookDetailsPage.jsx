@@ -5,6 +5,8 @@ import { FaUserAlt } from "react-icons/fa";
 import { IoStarSharp } from "react-icons/io5";
 import { RiStarSLine } from "react-icons/ri";
 import FormComponent from "../../components/common/FormComponent";
+import gsap from "gsap";
+import { TweenLite } from "gsap/gsap-core";
 
 
 
@@ -66,6 +68,33 @@ const BookDetailsPage = () => {
     const [hideDetails, setHideDetails] = useState("")
     const [showForm, setShowForm] = useState("")
 
+    // SCRIPT PER ANIMAZIONE RELATIVA ALLA POSIZIONE DEL CURSORE
+    let lastMouseX = 0,
+        lastMouseY = 0;
+    let rotX = 0,
+        rotY = 0;
+
+    const setRotX = gsap.quickSetter(".button-3D", "rotationX");
+    const setRotY = gsap.quickSetter(".button-3D", "rotationY");
+
+    document.addEventListener("mousemove", mouseMoved);
+
+    function mouseMoved(ev) {
+        var deltaX = ev.pageX - lastMouseX;
+        var deltaY = ev.pageY - lastMouseY;
+
+        lastMouseY = ev.pageX;
+        lastMouseX = ev.pageY;
+
+        rotY -= deltaX * 0.1;
+        rotX += deltaY * 0.1;
+
+        setRotX(rotX - 'deg');
+        setRotY(rotY - 'deg');
+    }
+
+
+
     return (
         <>
 
@@ -75,8 +104,17 @@ const BookDetailsPage = () => {
                 <div className="card mt-5 p-3">
                     <div className="row g-0 align-items-center">
                         {/* Immagine */}
-                        <div className="col-sm-12 col-md-4 text-center">
+                        {/* <div className="col-sm-12 col-md-4 text-center">
                             <img src={singleBook?.item?.image} className="img-fluid rounded-start" alt="Book Cover" />
+                        </div> */}
+                        <div className="button-3D col-sm-12 col-md-4 text-center">
+                            <div className="pane pane-front">
+                                <img src={singleBook?.item?.image} className="img-fluid rounded-start" alt="Book Cover" />
+                            </div>
+                            <div className="pane pane-right"></div>
+                            <div className="pane pane-left"></div>
+                            <div className="pane pane-top"></div>
+                            <div className="pane pane-bottom"></div>
                         </div>
                         {/* Testo */}
                         <div className="col-sm-12 col-md-8 ">
