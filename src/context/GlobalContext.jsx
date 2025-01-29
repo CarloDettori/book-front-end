@@ -5,21 +5,26 @@ const GlobalContext = createContext();
 
 const GlobalProvider = ({ children }) => {
     const [booksList, setBooksList] = useState([]);
+    const [searchQuery, setSearchQuery] = useState("");
 
-    function getBooksList() {
-        axios
-            .get("http://localhost:3000/books")
-            .then((res) => setBooksList(res.data.items))
-            .catch((error) => console.log(error))
-            .finally(() => console.log("Data Fetch Completed"));
-    }
+    const getBooksList = async () => {
+        try {
+            const response = await axios.get("http://localhost:3000/books");
+            setBooksList(response.data.items);
+        } catch (error) {
+            console.error("Errore durante il fetch dei libri:", error);
+        }
+    };
+    const filteredBooks = booksList.filter((book) =>
+        book.title.toLowerCase().includes(searchQuery.toLowerCase())
+    );
 
     useEffect(() => {
         getBooksList();
     }, []);
 
     return (
-        <GlobalContext.Provider value={{ booksList, setBooksList }}>
+        <GlobalContext.Provider value={{ booksList, setBooksList, searchQuery, setSearchQuery, filteredBooks }}>
             {children}
         </GlobalContext.Provider>
     );

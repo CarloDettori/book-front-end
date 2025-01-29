@@ -1,44 +1,12 @@
-// import { useState, useEffect } from "react";
-// import axios from "axios";
+import { useContext } from "react";
+import { GlobalContext } from "../../context/GlobalContext"
 
 const Header = () => {
 
-    // const [bookList, setBookList] = useState([]);
-    // const [value, setValue] = useState("")
-    // function getData() {
-    //     axios.get(`http://localhost:3000/books`)
-    //         .then((res) => {
-    //             console.log(res.data);
-    //             setBookList(res.data.items);
-
-    //         })
-    //         .catch((err) => console.log(err))
-    //         .finally("data fetch completed");
-    // }
-
-    // useEffect(getData, [])
-
-
-
-    // function getValues(event) {
-    //     setValue(event.target.value)
-
-    // }
-
-    // function changeBookList() {
-    //     let filteredBooks
-    //     bookList.filter((element) => {
-    //         return filteredBooks = element.name.includes(value)
-    //     })
-    // }
-
-    // function handleClick(e) {
-    //     setBookList(changeBookList)
-
-    //     window.location.reload();
-    // }
-
-    // console.log(value)
+    const { searchQuery, setSearchQuery } = useContext(GlobalContext);
+    const handleSearchChange = (event) => {
+      setSearchQuery(event.target.value);  
+    };
 
     return (
         <header>
@@ -55,9 +23,8 @@ const Header = () => {
                                 type="search"
                                 placeholder="Search"
                                 aria-label="Search"
-                            // onChange={getValues}
+                                onChange={handleSearchChange}
                             />
-                            <button className="btn bg-white" type="submit">Search</button>
                         </form>
                     </div>
                 </div>
