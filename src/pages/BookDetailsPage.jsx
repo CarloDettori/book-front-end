@@ -63,12 +63,13 @@ const BookDetailsPage = () => {
         return starsUser;
     }
 
+    const [hideDetails, setHideDetails] = useState("")
     const [showForm, setShowForm] = useState("")
 
     return (
         <>
             <FormComponent overlay={showForm} />
-            <div key={singleBook?.item?.id} className="container">
+            <div key={singleBook?.item?.id} className={`container ${hideDetails} `}>
 
                 {/* Card principale con i dettagli del libro */}
                 <div className="card mt-5">
@@ -82,7 +83,7 @@ const BookDetailsPage = () => {
                                 <h5>Author: {singleBook?.item?.author}</h5>
                                 <p className="card-text">{singleBook?.item?.abstract}</p>
                                 <p className=" card-text">{starsBooks}</p>
-                                <button onClick={() => { setShowForm("overlayFormActive") }} className="btn btn-dark">Leave a review</button>
+                                <button onClick={() => { setShowForm("overlayFormActive"); setHideDetails("hideContent") }} className="btn btn-dark">Leave a review</button>
                             </div>
                         </div>
                     </div>

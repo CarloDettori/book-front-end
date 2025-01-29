@@ -107,6 +107,10 @@ footer {
   box-shadow: inset 0px 2px 59px 10px rgba(0, 0, 0, 0.75);
 }
 
+.hideContent {
+  display: none;
+}
+
 #bookButton {
   background-color: #ffffff;
 }
