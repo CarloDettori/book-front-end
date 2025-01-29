@@ -9,7 +9,7 @@ const DefaultLayout = () => {
             <Header />
             <div className="d-flex">
                 <SidebarComponent />
-                <main>
+                <main className="position-relative t-0 l-0">
                     <Outlet />
                 </main>
             </div>

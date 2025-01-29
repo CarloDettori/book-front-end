@@ -8,7 +8,7 @@ const initialReview = {
     vote: "",
 };
 
-export default function FormComponent() {
+export default function FormComponent({ overlay }) {
     const { id } = useParams();
 
     const [userReview, setUserReview] = useState(initialReview);
@@ -43,47 +43,50 @@ export default function FormComponent() {
     }
 
     return (
-        <form onSubmit={handleSubmit}>
-            <div className="mb-3">
-                <label htmlFor="name" className="form-label">Name</label>
-                <input
-                    type="text"
-                    className="form-control"
-                    id="username"
-                    name="name"
-                    placeholder="Enter your name"
-                    value={userReview.name}
-                    onChange={handleChange}
-                />
-            </div>
+        <div className={`${overlay} overlayForm  position-absolute t-0 l-0 w-100 h-100 d-flex justify-content-center flex-column align-items-center`}>
+            <form onSubmit={handleSubmit} className="w-50">
+                <div className="mb-3">
+                    <label htmlFor="name" className="form-label">Name</label>
+                    <input
+                        type="text"
+                        className="form-control"
+                        id="username"
+                        name="name"
+                        placeholder="Enter your name"
+                        value={userReview.name}
+                        onChange={handleChange}
+                    />
+                </div>
 
-            <div className="mb-3">
-                <label htmlFor="text" className="form-label">Review</label>
-                <textarea
-                    className="form-control"
-                    id="text"
-                    name="text"
-                    rows="3"
-                    placeholder="Enter your review"
-                    value={userReview.text}
-                    onChange={handleChange}
-                ></textarea>
-            </div>
+                <div className="mb-3">
+                    <label htmlFor="text" className="form-label">Review</label>
+                    <textarea
+                        className="form-control"
+                        id="text"
+                        name="text"
+                        rows="3"
+                        placeholder="Enter your review"
+                        value={userReview.text}
+                        onChange={handleChange}
+                    ></textarea>
+                </div>
 
-            <div className="mb-3">
-                <label htmlFor="vote" className="form-label">Vote</label>
-                <input
-                    type="number"
-                    className="form-control"
-                    id="vote"
-                    name="vote"
-                    placeholder="Enter your vote from 1 to 5"
-                    value={userReview.vote}
-                    onChange={handleChange}
-                />
-            </div>
+                <div className="mb-3">
+                    <label htmlFor="vote" className="form-label">Vote</label>
+                    <input
+                        type="number"
+                        className="form-control"
+                        id="vote"
+                        name="vote"
+                        placeholder="Enter your vote from 1 to 5"
+                        value={userReview.vote}
+                        onChange={handleChange}
+                    />
+                </div>
 
-            <button type="submit" className="btn btn-primary">Submit</button>
-        </form>
+                <button type="submit" className="btn btn-primary">Submit</button>
+            </form>
+        </div>
+
     );
 }

@@ -63,58 +63,60 @@ const BookDetailsPage = () => {
         return starsUser;
     }
 
+    const [showForm, setShowForm] = useState("")
+
     return (
+        <>
+            <FormComponent overlay={showForm} />
+            <div key={singleBook?.item?.id} className="container">
 
-        <div key={singleBook?.item?.id} className="container w-100 h-100 pt-4">
-
-            {/* Card principale con i dettagli del libro */}
-            <div className="card">
-                <div className="row g-0">
-                    <div className="col-2">
-                        <img src={singleBook?.item?.image} className="img-fluid rounded-start" alt="..." />
-                    </div>
-                    <div className="col-md-8">
-                        <div className="card-body">
-                            <h4 className="card-title">{singleBook?.item?.title}</h4>
-                            <h5>Author: {singleBook?.item?.author}</h5>
-                            <p className="card-text">{singleBook?.item?.abstract}</p>
-                            <p className=" card-text">{starsBooks}</p>
+                {/* Card principale con i dettagli del libro */}
+                <div className="card mt-5">
+                    <div className="row g-0">
+                        <div className="col-2">
+                            <img src={singleBook?.item?.image} className="img-fluid rounded-start" alt="..." />
+                        </div>
+                        <div className="col-md-8">
+                            <div className="card-body">
+                                <h4 className="card-title">{singleBook?.item?.title}</h4>
+                                <h5>Author: {singleBook?.item?.author}</h5>
+                                <p className="card-text">{singleBook?.item?.abstract}</p>
+                                <p className=" card-text">{starsBooks}</p>
+                                <button onClick={() => { setShowForm("overlayFormActive") }} className="btn btn-dark">Leave a review</button>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            {/* Lista delle recensioni */}
+                {/* Lista delle recensioni */}
 
-            <div className="row  mt-4">
+                <div className="row  mt-4">
 
-                {singleBook?.reviews?.map((review) => {
-                    {/* TENTATIVO-1 */ starReviews(review) }
-                    return (
+                    {singleBook?.reviews?.map((review) => {
+                        {/* TENTATIVO-1 */ starReviews(review) }
+                        return (
 
-                        <div key={review.id} className=" rounded-3 bg-white d-flex flex-column my-2  p-0 col-12 " role="alert" aria-live="assertive" aria-atomic="true">
-                            <div className="toast-header rounded-2 p-2 ">
-                                <strong className="me-auto flex-column d-flex">
-                                    <div className="text-white">
-                                        <FaUserAlt style={{ fontSize: "25px", marginBottom: "5px", paddingRight: "10px", color: "white" }} /> Recensione di: {review.name}
-                                    </div>
-                                    <div>
-                                        {/* TENTATIVO-1 */ starsUser}{/* TENTATIVO-2 {starsUser[index]} */}
-                                    </div>
-                                </strong>
-                                <small className="text-body-secondary">11 mins ago</small>
-                                <button type="button" className="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                            <div key={review.id} className=" rounded-3 bg-white d-flex flex-column my-2  p-0 col-12 " role="alert" aria-live="assertive" aria-atomic="true">
+                                <div className="toast-header rounded-2 p-2 ">
+                                    <strong className="me-auto flex-column d-flex">
+                                        <div className="text-white">
+                                            <FaUserAlt style={{ fontSize: "25px", marginBottom: "5px", paddingRight: "10px", color: "white" }} /> Recensione di: {review.name}
+                                        </div>
+                                        <div>
+                                            {/* TENTATIVO-1 */ starsUser}{/* TENTATIVO-2 {starsUser[index]} */}
+                                        </div>
+                                    </strong>
+                                    <small className="text-body-secondary">11 mins ago</small>
+                                    <button type="button" className="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                                </div>
+                                <div className="toast-body p-2">{review.text}</div>
                             </div>
-                            <div className="toast-body p-2">{review.text}</div>
-                        </div>
-                    )
-                })}
+                        )
+                    })}
 
-            </div>
-
-
-            <FormComponent />
-        </div>
+                </div>
+            </div >
+        </>
     );
 };
 
