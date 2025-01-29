@@ -1,30 +1,34 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom' // Dopo aver installato react-router-dom ci importiamo "BrowserRouter", "Routes", "Route"
-import BooksPage from './pages/BooksPage';                      // Importiamo i vari componenti e le pagine necessarie per il rendering delle pagine
-import BookDetailsPage from './pages/BookDetailsPage';
-import ContactPage from './pages/ContactPage';
-import AboutUsPage from './pages/AboutUsPage';
+import BooksPage from './pages/booksPages/BooksPage'                      // Importiamo i vari componenti e le pagine necessarie per il rendering delle pagine
+import BookDetailsPage from './pages/booksPages/BookDetailsPage';
+import ContactPage from './pages/infoPages/ContactPage';
+import AboutUsPage from "./pages/infoPages/AboutUsPage"
 import DefaultLayout from './components/layout/DefaultLayout'; // Importiamo il layout di default per le varie rotte web
+import { GlobalProvider } from './context/GlobalContext';  // Importiamo 
 
 function App() {
   return (
     <>
-      <BrowserRouter>                                                   {/* BrowserRouter gestisce il routing dell'app */}
-        <Routes>                                                        {/* Definisce le rotte dell'app */}
+      <GlobalProvider>
+        <BrowserRouter>                                                   {/* BrowserRouter gestisce il routing dell'app */}
+          <Routes>                                                        {/* Definisce le rotte dell'app */}
 
-          <Route element={<DefaultLayout />}>                           {/* Layout di default per tutte le rotte */}
+            <Route element={<DefaultLayout />}>                           {/* Layout di default per tutte le rotte */}
 
-            <Route path="/">                                            {/* Rotta principale con annidamento rotte */}
-              <Route index element={<BooksPage />} />                   {/* Nested Route: Pagina dei libri */}
-              <Route path=":id" element={<BookDetailsPage />} />        {/* Nested Route: Dettagli libro (id dinamico) */}
+              <Route path="/">                                            {/* Rotta principale con annidamento rotte */}
+                <Route index element={<BooksPage />} />                   {/* Nested Route: Pagina dei libri */}
+                <Route path=":id" element={<BookDetailsPage />} />        {/* Nested Route: Dettagli libro (id dinamico) */}
+              </Route>
+
+              <Route path="/contact" element={<ContactPage />} />         {/* Pagina di contatto */}
+              <Route path="/about" element={<AboutUsPage />} />           {/* Pagina "Chi siamo" */}
+
             </Route>
 
-            <Route path="/contact" element={<ContactPage />} />         {/* Pagina di contatto */}
-            <Route path="/about" element={<AboutUsPage />} />           {/* Pagina "Chi siamo" */}
+          </Routes>
+        </BrowserRouter>
+      </GlobalProvider>
 
-          </Route>
-
-        </Routes>
-      </BrowserRouter>
     </>
   );
 }

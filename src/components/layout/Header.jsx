@@ -49,7 +49,7 @@ const Header = () => {
                     </button>
                     <div className="d-flex justify-content-between collapse navbar-collapse" id="navbarTogglerDemo03">
                         <div className="logo d-flex align-items-center">
-                            <img src="src/public/sigil.png" alt="" />
+                            <img src="src/public/images/sigil.png" alt="" />
                             <h2 className="text-white px-2">Libraries</h2>
                         </div>
                         <form className="d-flex" role="search">

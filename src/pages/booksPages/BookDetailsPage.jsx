@@ -4,7 +4,7 @@ import axios from "axios"                       // Importiamo la libreria axios 
 import { FaUserAlt } from "react-icons/fa";
 import { IoStarSharp } from "react-icons/io5";
 import { RiStarSLine } from "react-icons/ri";
-import FormComponent from "../components/common/FormComponent";
+import FormComponent from "../../components/common/FormComponent";
 
 
 

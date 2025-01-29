@@ -1,4 +1,5 @@
 const AboutUsPage = () => {
+
     const teamMembers = [
         { name: "Michele Saraceni", role: "Co-Founder & CEO", email: "michele@hotmail.it" },
         { name: "Daniel Ferraiuolo", role: "Co-Founder & CTO", email: "daniel@libero.it" },
@@ -8,7 +9,7 @@ const AboutUsPage = () => {
     ];
 
     return (
-        <main className="bg-dark p-5">
+        <main className="p-5">
             <h1 className="text-white mb-4">About Us</h1>
             <div className="text-light mb-4">
                 <p>We are a team of passionate professionals dedicated to providing high-quality services to our clients. Our goal is to make a positive impact through innovation, creativity, and collaboration.</p>
