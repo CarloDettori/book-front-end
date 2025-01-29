@@ -74,6 +74,8 @@ export default function FormComponent() {
                 <label htmlFor="vote" className="form-label">Vote</label>
                 <input
                     type="number"
+                    min="1"
+                    max="5"
                     className="form-control"
                     id="vote"
                     name="vote"
