@@ -14,6 +14,7 @@ gsap.registerPlugin(ScrollTrigger, Draggable, Flip, MotionPathPlugin);
 
 
 
+
 const BookDetailsPage = () => {
     const { id } = useParams(); // Ottiene l'ID del libro dai parametri dell'URL
     const [singleBook, setSingleBook] = useState([]); // Stato per memorizzare il libro e le recensioni
@@ -97,16 +98,6 @@ const BookDetailsPage = () => {
     //     setRotY(rotY + 'deg');
     // }
 
-    //vi lascio le fonti sull'animazione per chi volesse consultarle
-
-    // codice: https://gsap.com/community/forums/topic/22796-3d-cube-animation-based-on-mouse-cursor-position/
-
-    // tutorial GSAP: https://www.npmjs.com/package/gsap
-
-
-
-
-
 
 
     return (
@@ -122,21 +113,9 @@ const BookDetailsPage = () => {
                             <img src={singleBook?.item?.image} className="img-fluid rounded-start" alt="Book Cover" />
                         </div> */}
                         {/* Immagine animata*/}
-                        <div className=" button-3D col-sm-12 col-md-4 text-center">
-                            <div className="pane pane-front">
-                                <img src={singleBook?.item?.image} className="img-fluid rounded-start" alt="Book Cover" />
-                            </div>
-                            <div className="pane pane-right">
-                                {/* superficie destra */}
-                            </div>
-                            <div className="pane pane-left">
-                                {/* superficie sinistra */}
-                            </div>
-                            <div className="pane pane-top">
-                                {/* superficie sopra */}
-                            </div>
-                            <div className="pane pane-bottom">
-                                {/* superficie sotto */}
+                        <div className="book-container col-sm-12 col-md-4" rel="noreferrer noopener">
+                            <div className="book  text-center">
+                                <img alt="" src={singleBook?.item?.image} />
                             </div>
                         </div>
                         {/* Testo */}

@@ -40,7 +40,7 @@ const Header = () => {
                             <img src="src/public/images/sigil.png" alt="" />
                             <h2 className="text-white px-2">Libraries</h2>
                         </div>
-                        <form className="d-flex" role="search">
+                        <form className="d-flex" role="search" onSubmit={(e) => { e.preventDefault() }}>
                             <input
                                 className="form-control me-2 white"
                                 type="search"
