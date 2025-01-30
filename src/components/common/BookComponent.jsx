@@ -15,7 +15,7 @@ const CardComponent = ({ book }) => {
                             <p className='text-white'>Author: {book.author}</p>
                             <p className=" card-text text-white">{book.abstract.substring(0, 40)}...</p>
                         </div>
-                        <Link id='bookButton' to={`http://localhost:5173/${book.id}`} className=" btn ">Details</Link>
+                        <Link id='bookButton' to={`http://localhost:5173/books/${book.id}`} className=" btn ">Details</Link>
                     </div>
                 </div>
             </div>

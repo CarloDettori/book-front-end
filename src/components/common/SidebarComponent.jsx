@@ -6,10 +6,10 @@ export const SidebarComponent = () => {
 
     const menuItems = [
         { id: "bottone1", to: "/", icon: "bi-house", label: "Home" },
+        { id: "bottone4", to: "/books", icon: "bi-grid", label: "Books" },
         { id: "bottone3", to: "/about", icon: "bi-card-checklist", label: "About Us" },
         { id: "bottone5", to: "/contact", icon: "bi-people", label: "Contacts" },
         { id: "bottone2", to: "#", icon: "bi-speedometer2", label: "Dashboard" },
-        { id: "bottone4", to: "#", icon: "bi-grid", label: "Products" }
     ];
 
     return (

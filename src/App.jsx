@@ -5,6 +5,7 @@ import ContactPage from './pages/ContactPage';
 import AboutUsPage from './pages/AboutUsPage';
 import DefaultLayout from './components/layout/DefaultLayout'; // Importiamo il layout di default per le varie rotte web
 import { GlobalProvider } from './context/GlobalContext';  // Importiamo 
+import HomePage from './components/HomePage';
 
 function App() {
   return (
@@ -14,8 +15,9 @@ function App() {
           <Routes>                                                        {/* Definisce le rotte dell'app */}
 
             <Route element={<DefaultLayout />}>                           {/* Layout di default per tutte le rotte */}
+              <Route path="/" element={<HomePage />} />
 
-              <Route path="/">                                            {/* Rotta principale con annidamento rotte */}
+              <Route path="/books">                                            {/* Rotta principale con annidamento rotte */}
                 <Route index element={<BooksPage />} />                   {/* Nested Route: Pagina dei libri */}
                 <Route path=":id" element={<BookDetailsPage />} />        {/* Nested Route: Dettagli libro (id dinamico) */}
               </Route>
