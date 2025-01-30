@@ -2,8 +2,7 @@ import { useParams } from "react-router-dom"      // Dopo aver installato react-
 import { useState, useEffect } from "react"      // Importiamo da react useState, useEffect ( hooks = funzioni gancio ).
 import axios from "axios"                       // Importiamo la libreria axios per effettuare le richieste http verso il server.
 import { FaUserAlt } from "react-icons/fa";
-import { IoStarSharp } from "react-icons/io5";
-import { RiStarSLine } from "react-icons/ri";
+
 import FormComponent from "../../components/common/FormComponent";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
@@ -11,7 +10,7 @@ import Flip from "gsap/Flip";
 import Draggable from "gsap/Draggable";
 import { MotionPathPlugin } from "gsap/all";
 gsap.registerPlugin(ScrollTrigger, Draggable, Flip, MotionPathPlugin);
-
+import StarsReview from "../../components/common/StarsReview";
 
 
 
@@ -23,52 +22,6 @@ const BookDetailsPage = () => {
         axios.get(`http://localhost:3000/books/${id}`).then((res) => setSingleBook({ item: res.data.item, reviews: res.data.reviews }));
     }, [id]);
 
-    const vote = singleBook?.item?.vote_avarage
-
-    let starsBooks = []
-
-    for (let index = 0; index < 5; index++) {
-        if (starsBooks.length < vote) {
-            starsBooks.push(<IoStarSharp key={index} style={{ color: "#f7af11", fontSize: "2rem" }} />)
-
-        } else {
-            starsBooks.push(<RiStarSLine key={index} style={{ color: "#f7af11", fontSize: "2rem" }} />)
-
-        }
-    }
-
-    // STELLE USER TENTATIVO
-    // const reviews = singleBook?.reviews
-    // const starsUser = []
-
-    // reviews?.forEach(review => {
-
-    //     const stars = []
-    //     for (let i = 0; i < 5; i++) {
-
-    //         if (stars.length < review.vote) {
-    //             stars.push(<IoStarSharp style={{ color: "#f7af11", fontSize: "2rem" }} />)
-    //         } else {
-    //             stars.push(<RiStarSLine style={{ color: "#f7af11", fontSize: "2rem" }} />)
-    //         }
-    //     }
-    //     starsUser.push(stars)
-    // });
-
-
-    /* TENTATIVO-1 */let starsUser = []
-    function starReviews(review) {
-        const voteUser = review?.vote
-        starsUser = []
-        for (let index = 0; index < 5; index++) {
-            if (starsUser.length < voteUser) {
-                starsUser.push(<IoStarSharp key={index} style={{ color: "#f7af11", fontSize: "2rem" }} />)
-            } else {
-                starsUser.push(<RiStarSLine key={index} style={{ color: "#f7af11", fontSize: "2rem" }} />)
-            }
-        }
-        return starsUser;
-    }
 
     const [hideDetails, setHideDetails] = useState("")
     const [showForm, setShowForm] = useState("")
@@ -124,7 +77,7 @@ const BookDetailsPage = () => {
                                 <h4 className="card-title">{singleBook?.item?.title}</h4>
                                 <h5>Author: {singleBook?.item?.author}</h5>
                                 <p className="card-text d-block">{singleBook?.item?.abstract}</p>
-                                <p className="card-text d-block">{starsBooks}</p>
+                                <p className="card-text d-block"><StarsReview vote={singleBook?.item?.vote_avarage} /></p>
                                 <button
                                     onClick={() => { setShowForm("overlayFormActive"); setHideDetails("hideContent") }}
                                     className="btn btn-dark">
@@ -141,9 +94,7 @@ const BookDetailsPage = () => {
                 <div className="col mt-4">
 
                     {singleBook?.reviews?.map((review) => {
-                        {/* TENTATIVO-1 */ starReviews(review) }
                         return (
-
                             <div key={review.id} className=" rounded-3 bg-white d-flex flex-column my-2  p-0 col-12 " role="alert" aria-live="assertive" aria-atomic="true">
                                 <div className="toast-header rounded-2 p-2 ">
                                     <strong className="me-auto flex-column d-flex">
@@ -151,7 +102,7 @@ const BookDetailsPage = () => {
                                             <FaUserAlt style={{ fontSize: "25px", marginBottom: "5px", paddingRight: "10px", color: "white" }} /> Recensione di: {review.name}
                                         </div>
                                         <div>
-                                            {/* TENTATIVO-1 */ starsUser}{/* TENTATIVO-2 {starsUser[index]} */}
+                                            <StarsReview vote={review?.vote} />
                                         </div>
                                     </strong>
                                     <small className=" text-white px-3">11 mins ago</small>
