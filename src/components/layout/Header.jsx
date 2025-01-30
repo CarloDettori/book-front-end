@@ -24,7 +24,7 @@ const Header = () => {
 
     }
 
-    useEffect(filtring, [valueSearch])
+    useEffect(filtring, [searchValue])
 
 
 
