@@ -4,27 +4,27 @@ import axios from "axios";
 const GlobalContext = createContext();
 
 const GlobalProvider = ({ children }) => {
-    const [booksList, setBooksList] = useState([]);
-    const [searchQuery, setSearchQuery] = useState("");
 
-    const getBooksList = async () => {
-        try {
-            const response = await axios.get("http://localhost:3000/books");
-            setBooksList(response.data.items);
-        } catch (error) {
-            console.error("Errore durante il fetch dei libri:", error);
-        }
-    };
-    const filteredBooks = booksList.filter((book) =>
-        book.title.toLowerCase().includes(searchQuery.toLowerCase()) || book.author.toLowerCase().includes(searchQuery.toLowerCase())
-    );
+    const [bookListOriginal, setBookListOriginal] = useState([]);
+    const [fakeBooksList, setFakeBooksList] = useState([]);
 
-    useEffect(() => {
-        getBooksList();
-    }, []);
+    function getBooksList() {
+
+        axios
+            .get("http://localhost:3000/books")
+            .then((response) => {
+                setBookListOriginal(response.data.items)
+                setFakeBooksList(response.data.items)
+            })
+            .catch((error) => console.log(error))
+            .finally("Data fetch completed")
+
+    }
+
+    useEffect(getBooksList, [])
 
     return (
-        <GlobalContext.Provider value={{ booksList, setBooksList, searchQuery, setSearchQuery, filteredBooks }}>
+        <GlobalContext.Provider value={{ bookListOriginal, setBookListOriginal, fakeBooksList, setFakeBooksList }}>
             {children}
         </GlobalContext.Provider>
     );

@@ -4,7 +4,7 @@ import { GlobalContext } from "../../context/GlobalContext" // Importiamo Global
 
 const BookPage = () => {
 
-    const { filteredBooks } = useContext(GlobalContext); // Metodo consumer del context ( destructuring )
+    const { bookListOriginal } = useContext(GlobalContext); // Metodo consumer del context ( destructuring )
     //console.log(booksList); // Verifichiamo che i dati siano effettivamente quelli corretti e che siano arrivati
 
 
@@ -13,15 +13,9 @@ const BookPage = () => {
         <>
             <div className="container mt-5" > {/* Creiamo la sezione dei books e per ogni dato presente nell'array stampaimo un libro*/}
                 <div className="row">
-                {filteredBooks.length > 0 ? (
-                    filteredBooks.map((book) => (
+                    {bookListOriginal.map((book) => (
                         <CardComponent key={book.id} book={book} />
-                    ))
-                ) : (
-                    <div className="noBooksFound"> 
-                        <p>Nessun libro trovato.</p>
-                    </div>
-                )}
+                    ))}
                 </div>
             </div>
         </>
